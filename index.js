@@ -5,13 +5,26 @@ import {
   validateUsername,
 } from "./src/validators/syncValidators.js";
 import { getErrorMessage } from "./src/utils/errorMessages.js";
-// import { validateUsernameAsync } from './validators/asyncValidators';
+import {
+  checkUsernameAvailability,
+  checkEmailAvailability,
+  verifyPhoneNumber,
+  verifyCaptcha,
+  validateZipCode,
+} from "./src/utils/validationHelpers.js";
+
+import useFormValidator from './src/hooks/useFormValidator';
 
 export {
   validateEmail,
   validatePhoneNumber,
   validatePassword,
   validateUsername,
-  // validateUsernameAsync,
+  checkUsernameAvailability,
+  checkEmailAvailability,
+  verifyPhoneNumber,
+  verifyCaptcha,
+  validateZipCode,
   getErrorMessage,
+  useFormValidator
 };
