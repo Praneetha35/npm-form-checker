@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Praneetha35/npm-form-validator.git"
+    "url": "git+https://github.com/Praneetha35/npm-form-checker.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Praneetha35/npm-form-validator/issues"
+    "url": "https://github.com/Praneetha35/npm-form-checker/issues"
   },
-  "homepage": "https://github.com/Praneetha35/npm-form-validator#readme"
+  "homepage": "https://github.com/Praneetha35/npm-form-checker#readme"
 }
