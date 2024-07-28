@@ -34,43 +34,33 @@ declare module "@validation-lib/form-checker" {
   /**
    * Checks if a username is available.
    * @param {string} username - The username to check.
-   * @returns {Promise<boolean>} - Returns a promise that resolves to true if the username is available, otherwise false.
+   * @param {string} url - The API endpoint to query.
+   * @param {object} params - Additional query parameters to include in the request.
+   * @returns {Promise<void>} - Returns a promise that resolves if the username is available, otherwise rejects.
+   * @throws Will throw an error if the username is already taken or if there's a network error.
    */
-  export function checkUsernameAvailability(username: string): Promise<boolean>;
+  export function checkUsernameAvailability(username: string, url: string, params?: object): Promise<void>;
 
   /**
    * Checks if an email address is available.
    * @param {string} email - The email address to check.
-   * @returns {Promise<boolean>} - Returns a promise that resolves to true if the email is available, otherwise false.
+   * @param {string} url - The API endpoint to query.
+   * @param {object} params - Additional query parameters to include in the request.
+   * @returns {Promise<void>} - Returns a promise that resolves if the email is available, otherwise rejects.
+   * @throws Will throw an error if the email is already registered or if there's a network error.
    */
-  export function checkEmailAvailability(email: string): Promise<boolean>;
+  export function checkEmailAvailability(email: string, url: string, params?: object): Promise<void>;
 
   /**
    * Verifies a phone number.
-   * @param {string} phone - The phone number to verify.
-   * @returns {Promise<boolean>} - Returns a promise that resolves to true if the phone number is valid, otherwise false.
+   * @param {string} phoneNumber - The phone number to verify.
+   * @param {string} url - The API endpoint to query.
+   * @param {object} params - Additional query parameters to include in the request.
+   * @returns {Promise<void>} - Returns a promise that resolves if the phone number is valid, otherwise rejects.
+   * @throws Will throw an error if the phone number is invalid or already registered, or if there's a network error.
    */
-  export function verifyPhoneNumber(phone: string): Promise<boolean>;
+  export function verifyPhoneNumber(phoneNumber: string, url: string, params?: object): Promise<void>;
 
-  /**
-   * Verifies a CAPTCHA response.
-   * @param {string} captchaResponse - The CAPTCHA response to verify.
-   * @returns {Promise<boolean>} - Returns a promise that resolves to true if the CAPTCHA is valid, otherwise false.
-   */
-  export function verifyCaptcha(captchaResponse: string): Promise<boolean>;
-
-  /**
-   * Validates a ZIP code.
-   * @param {string} zip - The ZIP code to validate.
-   * @returns {boolean} - Returns true if the ZIP code is valid, otherwise false.
-   */
-  export function validateZipCode(zip: string): boolean;
-
-  /**
-   * Gets an error message for a given error code.
-   * @param {string} errorCode - The error code to get the message for.
-   * @returns {string} - Returns the error message.
-   */
   export function getErrorMessage(errorCode: string): string;
 
   /**
