@@ -1,8 +1,8 @@
-# form-checker
+# 🌟 form-checker 🌟
 
 form-checker is an easy-to-use form validation library that supports both synchronous and asynchronous validations, customizable error messages, and integration with popular frontend frameworks like Next.js, React, Vue, and Angular.
 
-## Features
+## ✨ Features
 
 - **Synchronous and Asynchronous Validation:** Supports real-time validation and async checks like username availability.
 - **Customizable Validation Rules:** Easily define your own validation rules.
@@ -11,7 +11,7 @@ form-checker is an easy-to-use form validation library that supports both synchr
 - **Ease of Use:** Simplified API to make integration highly intuitive.
 - **Custom Error Messages:** Allows developers to easily customize error messages.
 
-## Installation
+## 📦 Installation
 
 Install the package using npm or yarn:
 
@@ -19,3 +19,18 @@ Install the package using npm or yarn:
 npm install @validation-lib/form-checker
 # or
 yarn add @validation-lib/form-checker
+```
+
+## 🚀 Usage
+
+### Import the validateEmail function from the form-checker library
+```sh
+import {validateEmail} from "@validation-lib/form-checker";
+```
+
+### // Use the validateEmail function to check if the email is valid
+```sh
+const validEmail = validateEmail(formData.email);
+```
+
+
