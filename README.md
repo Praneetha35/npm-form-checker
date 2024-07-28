@@ -28,7 +28,7 @@ yarn add @validation-lib/form-checker
 import {validateEmail} from "@validation-lib/form-checker";
 ```
 
-### // Use the validateEmail function to check if the email is valid
+### Use the validateEmail function to check if the email is valid
 ```sh
 const validEmail = validateEmail(formData.email);
 ```
