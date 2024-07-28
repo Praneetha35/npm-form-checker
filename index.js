@@ -11,9 +11,9 @@ import {
   verifyPhoneNumber,
   verifyCaptcha,
   validateZipCode,
-} from "./src/utils/validationHelpers.js";
+} from "./src/validators/asyncValidators.js";
 
-import useFormValidator from './src/hooks/useFormValidator';
+import useFormValidator from './src/hooks/useFormValidator.js';
 
 export {
   validateEmail,
