@@ -5,30 +5,31 @@
  * @param {string} username - The username to check.
  * @param {string} url - The API endpoint to query.
  * @param {object} params - Additional query parameters to include in the request.
- * @throws Will throw an error if the username is already taken or if there's a network error.
+ * @returns {Promise<string|boolean>} - Returns a message if the username is taken or if there's an error, otherwise returns true.
  */
 export const checkUsernameAvailability = async (username, url, params = {}) => {
-  // Construct the query parameters string from the provided params and username
+  // Construct query parameters
   const queryParams = new URLSearchParams({
     ...params,
     username,
   }).toString();
-  
-  // Construct the full API URL with query parameters
+
+  // Construct the full API URL
   const apiUrl = `${url}?${queryParams}`;
 
   try {
-    // Send a GET request to the API
+    // Fetch the response from the API
     const response = await fetch(apiUrl);
     const data = await response.json();
 
     // Check if the username is available
     if (!data.available) {
-      throw new Error("Username is already taken");
+      return "Username is already taken";
     }
+    return true;
   } catch (error) {
-    // Throw an error if the fetch fails or username is not available
-    throw new Error(error.message || "Error checking username availability");
+    // Handle any errors that occur during the fetch
+    return error.message || "Error checking username availability";
   }
 };
 
@@ -37,7 +38,7 @@ export const checkUsernameAvailability = async (username, url, params = {}) => {
  * @param {string} email - The email to check.
  * @param {string} url - The API endpoint to query.
  * @param {object} params - Additional query parameters to include in the request.
- * @throws Will throw an error if the email is already registered or if there's a network error.
+ * @returns {Promise<string|boolean>} - Returns a message if the email is taken or if there's an error, otherwise returns true.
  */
 export const checkEmailAvailability = async (email, url, params = {}) => {
   // Construct the query parameters string from the provided params and email
@@ -45,7 +46,7 @@ export const checkEmailAvailability = async (email, url, params = {}) => {
     ...params,
     email,
   }).toString();
-  
+
   // Construct the full API URL with query parameters
   const apiUrl = `${url}?${queryParams}`;
 
@@ -56,11 +57,12 @@ export const checkEmailAvailability = async (email, url, params = {}) => {
 
     // Check if the email is available
     if (!data.available) {
-      throw new Error("Email is already registered");
+      return "Email is already registered";
     }
+    return true;
   } catch (error) {
     // Throw an error if the fetch fails or email is not available
-    throw new Error(error.message || "Error checking email availability");
+    return error.message || "Error checking email availability";
   }
 };
 
@@ -77,7 +79,7 @@ export const verifyPhoneNumber = async (phoneNumber, url, params = {}) => {
     ...params,
     phoneNumber,
   }).toString();
-  
+
   // Construct the full API URL with query parameters
   const apiUrl = `${url}?${queryParams}`;
 
