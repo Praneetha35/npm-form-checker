@@ -1,5 +1,5 @@
 {
-  "name": "@tools/form-checker",
+  "name": "@validation-lib/form-checker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
